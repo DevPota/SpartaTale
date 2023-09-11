@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8339922984052514569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8339922984052514571}
+  - component: {fileID: 8339922984052514568}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8339922984052514571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8339922984052514569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8339922984052514568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8339922984052514569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a063970a91c9f14b9923e647158eda7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mask: {fileID: 0}
+  Square: {fileID: 0}
+  Player: {fileID: 0}
+  maskPosition: {x: 0, y: 0, z: 0}
+  maskHalfWidth: 0
+  maskHalfHeight: 0
+  StraightPrefab: {fileID: 8963428667942028807, guid: 5ff07bab06155a349a608a9b447cf5a3, type: 3}
+  SecondPrefab: {fileID: 2369700943566477907, guid: eec3f05a2aaa3eb4daa588a11305da86, type: 3}
+  SecondRotatePrefab: {fileID: 1792419670315155581, guid: 0e356d50c3a81224cb3fedfa0086717f, type: 3}
+  ThirdPrefab: {fileID: 157044068748629322, guid: 02c7e7f8f57649242b1d17154d0f4806, type: 3}
+  FifthPrefab: {fileID: 7446800707797656444, guid: f2ea433fdfd495840a0fc3f7c41c7204, type: 3}
+  SixthPrefab: {fileID: 6137020545014731311, guid: e0af746211e682b4182487a6bb0f7166, type: 3}
+  EighthPrefab: {fileID: 4342434930392611271, guid: f9ed4f1e523705540a6038a8bddbea68, type: 3}
+  EleventhPrefab: {fileID: 1058437654780151234, guid: 84d17b03453e2424caa5ffa03eed767d, type: 3}
+  TwelfthShortPrefab: {fileID: 6613399237423888744, guid: 69e0e828a0919114b8c225e180384492, type: 3}
+  TwelfthLongPrefab: {fileID: 8756958839890295235, guid: 39b3dd4b50fed7d4990071b64345d959, type: 3}
+  spawnPosition:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  scriptText: {fileID: 0}
