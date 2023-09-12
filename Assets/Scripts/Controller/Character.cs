@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public int   Hp           { get; set; } = 92;
+    public int   Hp           { get; set; } = 1;
     public int   MaxHp        { get; set; } = 92;
     public float Speed        { get; set; } = 5f;
     public bool  MoveWithMask { get; set; } = false;
@@ -25,7 +25,8 @@ public class Character : MonoBehaviour
     float playerHalfHeight;
 
     Rigidbody2D rigid;
-    Collider2D  coll;
+    Animator    anim;
+    public Collider2D Coll { get; private set; }
 
     /* UI */
     int currentPositionIndex = 0;
@@ -46,9 +47,10 @@ public class Character : MonoBehaviour
         GetLength();
         GetMask();
         rigid = GetComponent<Rigidbody2D>();
+        Coll = GetComponent<Collider2D>();
+        anim = GetComponent<Animator>();
         rigid.gravityScale = 0.0f;
-        coll = GetComponent<Collider2D>();
-        coll.isTrigger = true;
+        Coll.isTrigger = true;
 
         hpListener       = hpAction;
         hpSliderListener = hpSliderAction;
@@ -59,8 +61,6 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        return;
-
         if (Hp > 0) 
         {
             if (Ending) Speed = 1.0f;
@@ -203,7 +203,7 @@ public class Character : MonoBehaviour
         GetComponent<SpriteRenderer>().color = new Color(0,0,1);
         hasBeenChangeState = true;
         rigid.gravityScale = 1.05f;
-        coll.isTrigger = false;
+        Coll.isTrigger = false;
     }
     void MoveJumpEscape()
     {
@@ -211,7 +211,7 @@ public class Character : MonoBehaviour
         hasBeenChangeState = false;
         rigid.gravityScale = 0.0f;
         rigid.velocity = Vector3.zero;
-        coll.isTrigger = true;
+        Coll.isTrigger = true;
     }
 
     void  InitializeAttack()
@@ -225,6 +225,8 @@ public class Character : MonoBehaviour
         {
             Hp--;
             hasBeenAttack = true;
+            GameManager.I.PlaySFX("SFX_PlayerHit");
+            anim.SetTrigger("OnHit");
             Invoke("InitializeAttack", 0.05f);
 
             hpListener(Hp, MaxHp);

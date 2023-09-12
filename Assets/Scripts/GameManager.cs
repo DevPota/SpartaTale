@@ -1,15 +1,12 @@
+using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEngine.GridBrushBase;
-using static UnityEngine.GraphicsBuffer;
-using UnityEngine.UIElements;
-using System.Security.Cryptography;
-using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets;
+using Cysharp.Threading.Tasks;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,16 +32,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject TwelfthShortPrefab;
     [SerializeField] private GameObject TwelfthLongPrefab;
     [SerializeField] private GameObject ThirteenthPrefab;
+    [SerializeField] private AudioSource BGM;
 
     [SerializeField] private Vector3   battlePivot;
     [SerializeField] private Vector3[] spawnPosition;
 
     [SerializeField] private GameObject scriptText;
+
+    Queue<AudioSource> sfxQue = new Queue<AudioSource>();
+
+
     private Text script;
 
     bool end = false;
 
-    public bool IsPlayerTurn { get; private set; } = false;
+    public bool IsPlayerTurn { get; private set; } = true;
 
     public enum Pattern
     {
@@ -61,6 +63,13 @@ public class GameManager : MonoBehaviour
         GetMask();
         Player.transform.position = maskPosition;
         SetSpawnPosition();
+
+        for(int i = 0;i < 10; i++)
+        {
+            AudioSource temp = Instantiate(new GameObject()).AddComponent<AudioSource>();
+
+            sfxQue.Enqueue(temp);
+        }
     }
 
     void Start()
@@ -77,6 +86,7 @@ public class GameManager : MonoBehaviour
     {
         if(Player.Hp == 0 && !end)
         {
+            Player.Coll.isTrigger = false;
             end = true;
             StopAllCoroutines();
             /* HP 0 되면 플레이어 인풋 못받게 하고 애니메이션 재생 후 게임 오버씬으로 이동 */
@@ -88,11 +98,22 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameOver()
     {
-        Mask.SetActive(false);
+        BGM.Stop();
+
         Player.transform.DOMove(Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0)), 2.0f);
 
+        PlaySFX("SFX_PlayerDead0");
+        yield return new WaitForSeconds(0.2f);
+        PlaySFX("SFX_PlayerDead0");
+        yield return new WaitForSeconds(0.2f);
+        PlaySFX("SFX_PlayerDead0");
+        yield return new WaitForSeconds(0.2f);
+        PlaySFX("SFX_PlayerDead0");
+        yield return new WaitForSeconds(2.5f);
+        PlaySFX("SFX_PlayerDead1");
+        Player.GetComponent<Animator>().SetTrigger("OnDead");
         yield return new WaitForSeconds(2.2f);
-        //SceneManager.LoadScene("GameOverSceneTest");
+        SceneManager.LoadScene(4);
     }
 
     [ContextMenu("UpdateTurn")]
@@ -428,4 +449,18 @@ public class GameManager : MonoBehaviour
         SetSpawnPosition();
     }
 
+    public async Task<AudioClip> LoadAudio(string tag)
+    {
+        return await Addressables.LoadAssetAsync<AudioClip>(tag);
+    }
+
+    public async void PlaySFX(string tag)
+    {
+        AudioSource temp = sfxQue.Dequeue();
+
+        temp.clip = await LoadAudio(tag);
+        temp.Play();
+
+        sfxQue.Enqueue(temp);
+    }
 }

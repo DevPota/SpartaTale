@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 50437a182df2b824d84cdcd6c77ca844
+  m_SerializeEntries:
+  - m_GUID: 15942cc120e5e7a47af8cb5feee6cf2f
+    m_Address: SFX_PlayerDead0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: afc98cd0d0fcacd42bc100d2f4ac43ba
+    m_Address: SFX_PlayerDead1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c576c7a1af477da4db74eb6566973723
+    m_Address: BattleScene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bc9a44011dd862e49b79fe8b50d80442
+    m_Address: SFX_PlayerHit
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0d92b9b381902514ab5367f9f539f56f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0b65c50263c54a24295f2df7f2a329bd, type: 2}
+    - {fileID: 11400000, guid: d707cc8c627305e43a9652ef2ef0877a, type: 2}
