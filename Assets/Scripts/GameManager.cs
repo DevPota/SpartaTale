@@ -9,6 +9,7 @@ using static UnityEngine.GridBrushBase;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.UIElements;
 using System.Security.Cryptography;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject EleventhPrefab;
     [SerializeField] private GameObject TwelfthShortPrefab;
     [SerializeField] private GameObject TwelfthLongPrefab;
+    [SerializeField] private GameObject ThirteenthPrefab;
 
     [SerializeField] private Vector3   battlePivot;
     [SerializeField] private Vector3[] spawnPosition;
@@ -40,12 +42,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject scriptText;
     private Text script;
 
+    bool end = false;
+
     public bool IsPlayerTurn { get; private set; } = false;
 
     public enum Pattern
     {
         First = 1, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth, Tenth, Eleventh, Twelfth, Thirteenth, Fourteenth, Fifteenth
     }
+
     Pattern pattern = Pattern.First;
 
     void Awake()
@@ -60,6 +65,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        BattleUIManager.I.Init();
+        Player.Init(BattleUIManager.I.SetPlayerKrText, BattleUIManager.I.SetPlayerHpSlider);
+
         UpdateTurn();
         //Mask.transform.DOShakePosition(0.8f, 0.5f, 10);
         //Invoke("Battle", 0.8f);
@@ -67,15 +75,24 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(Player.hp == 0)
+        if(Player.Hp == 0 && !end)
         {
-            //StopAllCoroutines();
+            end = true;
+            StopAllCoroutines();
             /* HP 0 되면 플레이어 인풋 못받게 하고 애니메이션 재생 후 게임 오버씬으로 이동 */
+            Mask.SetActive(false);
+            Player.transform.DOMove(Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0)), 2.0f);
+            StartCoroutine(GameOver());
         }
-        //if (Input.GetKey(KeyCode.Z) && pattern!= Pattern.Fourth && pattern != Pattern.Eighth && pattern != Pattern.Tenth)
-        //{
-        //    //StopAllCoroutines();
-        //}
+    }
+
+    private IEnumerator GameOver()
+    {
+        Mask.SetActive(false);
+        Player.transform.DOMove(Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0)), 2.0f);
+
+        yield return new WaitForSeconds(2.2f);
+        //SceneManager.LoadScene("GameOverSceneTest");
     }
 
     [ContextMenu("UpdateTurn")]
@@ -129,7 +146,7 @@ public class GameManager : MonoBehaviour
 
         int boneCount = StraightPrefab.GetComponent<StraightBone>().BoneCount;
         float offsetX = boneCount * 0.3f * 0.5f;
-        float offsetY = 0.757f;
+        float offsetY = 0.3f;
         int[] index = { 0, 3, 1, 4, 2, 5 };
         int i = 0;
 
@@ -138,15 +155,15 @@ public class GameManager : MonoBehaviour
             Instantiate(StraightPrefab, spawnPosition[index[i++]] - new Vector3(offsetX, offsetY, 0), Quaternion.identity);
             if (i % 2 == 0) offsetX -= boneCount * 0.3f * 0.5f;
             offsetY *= -1;
-            if (i == 2) offsetY = -0.757f;
-            if (i == 4) offsetY = 0.757f;
+            if (i == 2) offsetY = -0.8f;
+            if (i == 4) offsetY = 0.3f;
             if (i == 6) break;
 
             yield return new WaitForSeconds(1.0f);
         }
         yield return new WaitForSeconds(1.0f);
 
-        UpdateTurn();
+        ChangePattern(Pattern.Second);
     }
 
     private IEnumerator Second()
@@ -171,6 +188,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Third()
     {
+        yield return new WaitForSeconds(1.0f);
         Instantiate(ThirdPrefab, spawnPosition[5] + new Vector3(0, maskHalfHeight, 0), Quaternion.identity);
 
         yield return new WaitForSeconds(4.5f);
@@ -245,6 +263,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Eighth() //그림좋아하세요? - 마스크 크기 변화
     {
+        Player.Speed = 2.0f;
         script.DOText("▶ 그림 좋아하세요?", 2.0f);
         yield return new WaitForSeconds(2.0f);
         script.text = null;
@@ -256,7 +275,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         maskInitialize();
-        Player.GetComponent<Character>().moveWithMask = true;
+        Player.GetComponent<Character>().MoveWithMask = true;
 
         ChangePattern(Pattern.Ninth);
     }
@@ -282,6 +301,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Tenth() //얼른 TIL 제출하세요 - 마스크 크기 변화
     {
+        Player.Speed = 5.0f;
+
         Player.gameObject.SetActive(false);
         Mask.transform.DOShakePosition(1.0f, 0.5f, 10);
         Mask.transform.DOMove(prevMaskPosition, 1.0f);
@@ -301,11 +322,10 @@ public class GameManager : MonoBehaviour
         List<List<Vector2>> list = new List<List<Vector2>>();
         GameObject obj = null;
 
-        list.Add(new List<Vector2>() { new Vector2(-2.8f, -0.41f), new Vector2(-0.93f, -3.32f) , new Vector2(3.62f, -1.37f) });
-        list.Add(new List<Vector2>() { new Vector2(-3.21f, -1.45f), new Vector2(-1.04f, 0.14f), new Vector2(-0.55f, -2.06f), new Vector2(1.86f, -3.4f), new Vector2(3.1f, 0.03f), new Vector2(3.92f, -1.86f) });
-        list.Add(new List<Vector2>() { new Vector2(-4.3f, -0.9f), new Vector2(-4.07f, -3.75f), new Vector2(-2.13f, -0.37f), new Vector2(-0.49f, 0.33f), new Vector2(-1.64f, -2.22f), new Vector2(-1.09f, -3.51f), new Vector2(1.43f, -2.74f), new Vector2(2.6f, -3.6f), new Vector2(3.02f, 0.34f), new Vector2(4.42f, -0.09f), new Vector2(4.82f, -1.63f), new Vector2(4.66f, -2.8f) });
-        list.Add(new List<Vector2>() { new Vector2(-3.95f, -0.24f), new Vector2(-3.75f, -2.07f), new Vector2(-4.62f, -3.28f), new Vector2(-3.72f, -3.94f), new Vector2(-2.56f, 0.02f), new Vector2(-1.94f, -0.49f), new Vector2(- 0.02f, 0.49f), new Vector2(0.29f, -0.37f), new Vector2(-1.44f, -1.95f), new Vector2(-0.85f, -2.07f), new Vector2(-1.32f, -3.43f), new Vector2(-0.07f, -3.9f), new Vector2(1.55f, -2.23f), new Vector2(2.02f, -2.43f), new Vector2(2.8f, -3.4f), new Vector2(3.7f, -3.87f), new Vector2(2.63f, -1.03f), new Vector2(3.33f, -0.83f), new Vector2(3.95f, 0.34f), new Vector2(4.85f, 0.57f), new Vector2(4.98f, -0.81f), new Vector2(5.41f, -1.59f), new Vector2(4.93f, -2.64f), new Vector2(3.92f, -2.17f) });
-
+        list.Add(new List<Vector2>() { new Vector2(-2.02f, 0.07f), new Vector2(-0.19f, -2.02f), new Vector2(2.05f, -0.67f) });
+        list.Add(new List<Vector2>() { new Vector2(-2.26f, -0.91f), new Vector2(-1.04f, 0.14f), new Vector2(-0.55f, -2.06f), new Vector2(1.16f, -1.13f), new Vector2(2.56f, 0.38f), new Vector2(2.83f, -2.11f) });
+        list.Add(new List<Vector2>() { new Vector2(-2.63f, -1.25f), new Vector2(-2.21f, -2.2f), new Vector2(-2.01f, -0.23f), new Vector2(-0.68f, 0.37f), new Vector2(-0.46f, -1.02f), new Vector2(-0.59f, -1.92f), new Vector2(1.04f, -1.96f), new Vector2(1.44f, -1.04f), new Vector2(1.08f, -0.09f), new Vector2(2.42f, 0.61f), new Vector2(2.8f, -0.51f), new Vector2(2.78f, -1.9f) });
+        list.Add(new List<Vector2>() { new Vector2(-2.3f, 0.57f), new Vector2(-2.68f, -1f), new Vector2(-2.45f, -1.72f), new Vector2(-2.28f, -2.31f), new Vector2(-2.56f, 0.02f), new Vector2(-1.94f, -0.49f), new Vector2(-1.11f, 0.25f), new Vector2(0.12f, -0.15f), new Vector2(-0.57f, -0.75f), new Vector2(-1.15f, -1.46f), new Vector2(-0.52f, -2.15f), new Vector2(0.49f, -1.42f), new Vector2(0.94f, -2.1f), new Vector2(2.06f, -2.15f), new Vector2(1.47f, -0.96f), new Vector2(3f, -1.78f), new Vector2(2.63f, -1.03f), new Vector2(2.37f, -0.27f), new Vector2(1.21f, 0.04f), new Vector2(0.3f, 0.72f), new Vector2(2.02f, 0.73f), new Vector2(3.15f, 0.67f), new Vector2(3.21f, 0.1f), new Vector2(3.25f, -2.43f) });
 
         for (int i = 0; i < 4; i++)
         {
@@ -326,10 +346,10 @@ public class GameManager : MonoBehaviour
     private IEnumerator Twelfth() //파란하트로 변신!
     {
         Player.transform.position = spawnPosition[4] + new Vector3(0, Player.transform.localScale.y * 0.5f, 0);
-        Player.GetComponent<Character>().blueHeart = true;
+        Player.GetComponent<Character>().BlueHeart = true;
 
         Instantiate(TwelfthShortPrefab, maskPosition + new Vector3(2.0f, -2.0f, 0), Quaternion.identity);
-        Instantiate(TwelfthLongPrefab, maskPosition + new Vector3(0, 0.5f, 0), Quaternion.identity);
+        Instantiate(TwelfthLongPrefab, maskPosition + new Vector3(0, 1.0f, 0), Quaternion.identity);
         //프리팹 복제 시 프리팹 안에 들어있는 오브젝트들의 position을 그대로 유지한 채 생성된다. 
         //프리팹 안에 들어있던 boneShort의 position이 -10이었다면, 마스크 중앙에 복제했을 때 중앙에서 -10의 위치에 boneShort가 나타난다.
 
@@ -340,27 +360,66 @@ public class GameManager : MonoBehaviour
         ChangePattern(Pattern.Thirteenth);
     }
 
-    private IEnumerator Thirteenth()
+    private IEnumerator Thirteenth() 
     {
         yield return null;
         //Square.SetActive(false);
-
+        Mask.transform.localScale = new Vector3(10, 3, 0);
+        maskInitialize();
         Player.transform.position = spawnPosition[4] + new Vector3(0, Player.transform.localScale.y * 0.5f, 0);
-        Player.GetComponent<Character>().blueHeart = true;
 
-        Instantiate(TwelfthShortPrefab, maskPosition + new Vector3(0, -2.0f, 0), Quaternion.identity);
-        Instantiate(TwelfthLongPrefab, maskPosition + new Vector3(0, 0.5f, 0), Quaternion.identity);
-        //프리팹 복제 시 프리팹 안에 들어있는 오브젝트들의 position을 그대로 유지한 채 생성된다. 
-        //프리팹 안에 들어있던 boneShort의 position이 -10이었다면, 마스크 중앙에 복제했을 때 중앙에서 -10의 위치에 boneShort가 나타난다.
+        Instantiate(ThirteenthPrefab, maskPosition + new Vector3(-maskHalfWidth, 0, 0), Quaternion.identity);
+        Instantiate(ThirteenthPrefab, maskPosition + new Vector3(maskHalfWidth, 0, 0), Quaternion.identity);
 
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(1.5f);
 
         //Square.SetActive(true);
+        ChangePattern(Pattern.Fourteenth);
     }
+    private IEnumerator Fourteenth() 
+    {
+        yield return null;
+        //Square.SetActive(false);
+        Mask.transform.localScale = new Vector3(9, 3.85f, 0);
+        maskInitialize();
+        Player.GetComponent<Character>().BlueHeart = false;
+
+        int[] index = { 0, 5, 2, 3 };
+        float rotate = 0.0f;
+
+        for (int i = 0; i < index.Length; i++)
+        {
+            yield return new WaitForSeconds(0.6f);
+            Vector2 vector = spawnPosition[index[i + 1]] - spawnPosition[index[i]];
+            rotate = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+            Instantiate(SixthPrefab, spawnPosition[index[i]], Quaternion.Euler(0, 0, rotate));
+
+            i++;
+
+            vector = spawnPosition[index[i - 1]] - spawnPosition[index[i]];
+            rotate = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+            Instantiate(SixthPrefab, spawnPosition[index[i]], Quaternion.Euler(0, 0, rotate));
+
+        }
+
+        yield return new WaitForSeconds(0.6f);
+
+        //Square.SetActive(true);
+        ChangePattern(Pattern.Fifteenth);
+    }
+    private IEnumerator Fifteenth() 
+    {
+        yield return null;
+        Mask.transform.localScale = new Vector3(6, 3.5f, 0);
+        maskInitialize();
+        Player.GetComponent<Character>().MoveWithMask = true;
+        Player.GetComponent<Character>().Ending = true;
+    }
+
 
     private void maskInitialize()
     {
-        Player.GetComponent<Character>().moveWithMask = false;
+        Player.GetComponent<Character>().MoveWithMask = false;
         //비활성화되어있어도 GetComponent가능
         GetMask();
         Player.transform.position = maskPosition;

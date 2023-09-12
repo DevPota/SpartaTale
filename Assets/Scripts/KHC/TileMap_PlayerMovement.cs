@@ -8,7 +8,7 @@ public class TileMap_PlayerMovement : MonoBehaviour
             Rigidbody2D rigid                           = default;
             Vector2     direciton                       = new Vector2(0, -1);
 
-            float       speed                           = 2f;
+            public float       speed                           = 2f;
             string      isMoveStr                       = "IsMove";
             string      horizontalStr                   = "Horizontal";
             string      verticalStr                     = "Vertical";
@@ -23,6 +23,9 @@ public class TileMap_PlayerMovement : MonoBehaviour
     {
         if(IsActive == false)
         {
+            Anim.SetBool(isMoveStr, false);
+            direciton = new Vector2(0, 0);
+            rigid.velocity = new Vector2(0, 0);
             return;
         }
 

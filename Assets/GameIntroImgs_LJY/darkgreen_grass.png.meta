@@ -1,0 +1,2445 @@
+fileFormatVersion: 2
+guid: 71096b3d1783c40438964d3da6892051
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: darkgreen_grass_0
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a26bd43e66f34394a499fe09d359ba9
+      internalID: 1380570203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_1
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b99ed12d4b74bf8b1feaf9d072cc04
+      internalID: -1059772579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_2
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fba8b3fffce6b4f479e584591a0229fa
+      internalID: -1270890050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_3
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 983245e517fac4671b72ec98c17649bb
+      internalID: 1078235229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_4
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff061301cfb734e6fb7d076e6fac9291
+      internalID: 711669946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_5
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2772c337c1f48d08777f4bdfe69e24
+      internalID: -1711827833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_6
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9adf1d017e73468da7136ffdb4cdd06
+      internalID: -856294014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_7
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eef6fbd6eba542f392efc0d0a91cd8d
+      internalID: -437433196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_8
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17659cfcf94654ea8aacad6db47eb902
+      internalID: -822357215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_9
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd987c98b50c84cc980c034f26231600
+      internalID: 58651573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_10
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6be706556e79435998f12e5b3177b0b
+      internalID: -845455977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_11
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320c36d958774452aadcd5330cca3885
+      internalID: 1772666224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_12
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45043c1fdcffe4d4baf9ca6a160c1790
+      internalID: -1411751385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_13
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 1924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1301e74c6171947bb8f4ab5d51d192d0
+      internalID: 1654546817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_14
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b275bea5606a4b00a79f70540eab5d4
+      internalID: -467372100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_15
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0338ffbebdb542d48ee8fb6c5d21780
+      internalID: 1895261600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_16
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 337b2a271774f49f48167f33f2931fe6
+      internalID: 1067744397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_17
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de6cbdbfdb5ee4f8197d1fd1e8fb143a
+      internalID: 480221887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_18
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9a9cd4351a1482f9043b5a06447ab2
+      internalID: 1959715187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_19
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13335abb5a78c474592fc576222ca745
+      internalID: -1960883029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_20
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a2b2c7162074a64a015f8aec5b9c4c
+      internalID: 1176392599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_21
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa207b00f8a694eaaae70f08804dfa21
+      internalID: -747408554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_22
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1998704599347958249485ec2f3d8e
+      internalID: 2071249751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_23
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 094100ce53956451bb6b2720aee00485
+      internalID: -1524527432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_24
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3deda313cf12473bbb72ecbc3206816
+      internalID: 1010380851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_25
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c1df6e623da4385869c12ab52a23c5
+      internalID: -105620294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_26
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dff298b180ca45a79ee994764ad5613
+      internalID: 593952946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_27
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 1824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f23395c41144ca7a2b57adf60500ec
+      internalID: 1754985607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_28
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 890501f366f154c179e31e3ddf123f7a
+      internalID: 1350029280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_29
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81474a615456c470483eedb387856cbc
+      internalID: 1123323457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_30
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e26ca73c484d4a2192282d1feca5d6e
+      internalID: 357544870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_31
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 811f3f5f119c140049003010d2c18066
+      internalID: -625931360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_32
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3e58e9fb6b24bb8a40188f63177a33
+      internalID: -1430820588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_33
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff94f9ecc2f79407aae12e65d9a270da
+      internalID: -17215304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_34
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d62f378b036e489fb194567e024f070
+      internalID: 110008344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_35
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c0cffb8be44b4085ad1621001ced212
+      internalID: -945803125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_36
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbef52e9d75094d0f8f797b376ab2b7f
+      internalID: 1557772022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_37
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eada5074b840949bc85a412e505b14a4
+      internalID: 1189519028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_38
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 947bdec98e20e4153b3c67926d0b8019
+      internalID: 530510420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_39
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1edcb897064d44186ae8620e34c48f45
+      internalID: -551473152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_40
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0668a3c275fb94d7a8ff1963f896b9ab
+      internalID: 1331001922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_41
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 1724
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08d596aea42d4bfe8aa2a7cc369eead
+      internalID: 1653913831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_42
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5172ad74feced4ea8a5da4ab65685eb7
+      internalID: 1542854688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_43
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee51d0beeaad403499399f71122a9d1
+      internalID: -229540720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_44
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e05d3378ff4b4c58b8413363b36678e
+      internalID: -2106107012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_45
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27e2167d50b14c599488682740daf0f
+      internalID: -247723152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_46
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbff3d65c94548c9ae209b3ec977aef
+      internalID: -999968544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_47
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc1a71f2883545a3a5cb1e6041cdfa7
+      internalID: 798078865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_48
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c80d34fcfd2437aae2d7449cb90e63
+      internalID: 274072722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_49
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c09e411529c4e83bf503868f3d3b59
+      internalID: -1545171062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_50
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 877d75a68541a47c1acf205da8dde791
+      internalID: -908159641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_51
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c547c17af3dcf47c688805594323ff69
+      internalID: 1922991881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_52
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6303ddfe12d5341c6ab943b3372bdf9a
+      internalID: 1406189378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_53
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ce40cc0ec51d48c5a087890e3e03578
+      internalID: -743749583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_54
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1624
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404c0a3d3ac2b4ce0bd88ee61239e474
+      internalID: -1644338562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_55
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1524
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c03013b8acde486e98a45a33ccbf881
+      internalID: 1005012615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_56
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1524
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47deebce5839c49bcac7cb8605cfd57b
+      internalID: -2120904675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_57
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1524
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e4cf12d26c3429e91d3f5ee7cecccf
+      internalID: -1061257142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_58
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1524
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e61b0c1ee78604052b6b7fc15ebb24b0
+      internalID: -560803113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_59
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1524
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4bfb2aa7441243d4b953d0a51277643
+      internalID: -735980678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_60
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1524
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810920fd684174419abb5b01644b2de3
+      internalID: 250915589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_61
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1524
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38ffb00b7abad43a18d1f2bb82301813
+      internalID: -140885851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_62
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1524
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea49312385814a50a37037349d5d798
+      internalID: 1291544701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_63
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1524
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad00234765cb44a43b8129039db6b6c4
+      internalID: 774210626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_64
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1524
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb71993e039c84a9ca716829041c052a
+      internalID: -873047606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_65
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1424
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78343880591814fdd9512e80f69c40a8
+      internalID: -673701888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_66
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1424
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff9d100dd0474fd3a857d0f1249e438
+      internalID: 518197924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_67
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1424
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec5a1d0931164e6fa90b9fce1e31336
+      internalID: -1246590276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_68
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1424
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159ab93d4036c4b9f8d962a2d705b022
+      internalID: -1307257793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_69
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1424
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e644d111f7f146d2b2c60caa761e51d
+      internalID: -1010936605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_70
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1424
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa8fe7842dc2f490593ee6b07580b574
+      internalID: 407292319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_71
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1424
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668bde5b8e5484068964239f3880d221
+      internalID: 793578525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_72
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1424
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c77f111a0d5a44b7a758357706d0730
+      internalID: -8548918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_73
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1424
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abcce0e6076de42818658ffbf01c08dc
+      internalID: 2062616144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_74
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1324
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbbfadb12ec3645de977b209cda48b2e
+      internalID: -338513551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_75
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1324
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c671e5de2d7f4961af390ca3eebefff
+      internalID: -1281816051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_76
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1324
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5d6da817a05474e88f765321796973
+      internalID: 1123532995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_77
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1224
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc204ac740d740dfb0588c7b74a5bd5
+      internalID: 1561208219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_78
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1224
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31c5b567ee13c4da78572b43650e37f2
+      internalID: 1104329868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_79
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1224
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd90b3488fa5e4d0b9b70f7e5ea49371
+      internalID: -2105192266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_80
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1224
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af868dfd09364a4d899b68dc167964a
+      internalID: 364412619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_81
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1224
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada479ac5cdb9478882f2bf4f05928da
+      internalID: -2042026744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_82
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1224
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 891897237667c45d0919a5b5229ab043
+      internalID: 406144197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_83
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da6a481f53b241ff8caf8e37f2026ea
+      internalID: -1909387630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_84
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd8caf1e067ab42edae55f75ac4bd525
+      internalID: 1118535927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_85
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf3806ce923849d1aaefd8a1034260c
+      internalID: -1982373410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_86
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc6789ae2352542d3b95374487c07a91
+      internalID: -689127143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_87
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 410c4d3adfbc34b60ae02fc264f40d47
+      internalID: 332921095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_88
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f128e1efddd04df99400d13d1ec82f1
+      internalID: 1358896825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_89
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1124
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60dbb91627d8644629f0cfc4fcea45b5
+      internalID: -2088347959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_90
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1024
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70d0bc54f2a94e7ca1c2b1820a62915
+      internalID: -928480666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_91
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1024
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c5c88accc4b4c219c1e64c24a1e54d
+      internalID: 1406621215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_92
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1024
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352ba6c8f2e0d4435956473fad16d505
+      internalID: -1375300077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_93
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d27308283e31405a9abd519b69d3308
+      internalID: -634500626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_94
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc40871532f8e4969a939a72ab7f8aca
+      internalID: -868305368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_95
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f764819e68ac7467093e7918bd6a19b1
+      internalID: -1291111370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_96
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1190fb915f2384f3286a8f58c2189de4
+      internalID: -355594322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_97
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 023af8f46e91d42ccbb0e89e77ea5b6a
+      internalID: -1197352451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_98
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 924
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ef0b0c93b984b8a935699cc13770d8
+      internalID: 1698120000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_99
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7671749682ae74127831d2feccacf981
+      internalID: -138758276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_100
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40cb03544a2ce48cfadb3f2089ef92ba
+      internalID: -2086188053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_101
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d7268d14cc14f32a75d49e371271a0
+      internalID: -445209749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_102
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6548a403be434d40afe16452f3007dd
+      internalID: 1725234997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_103
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66808684356004f06866c93928445991
+      internalID: -1212560687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: darkgreen_grass_104
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 824
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fd8e9dbd585644479d5cba9a9e55c0f
+      internalID: -706539723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      darkgreen_grass_0: 1380570203
+      darkgreen_grass_1: -1059772579
+      darkgreen_grass_10: -845455977
+      darkgreen_grass_100: -2086188053
+      darkgreen_grass_101: -445209749
+      darkgreen_grass_102: 1725234997
+      darkgreen_grass_103: -1212560687
+      darkgreen_grass_104: -706539723
+      darkgreen_grass_11: 1772666224
+      darkgreen_grass_12: -1411751385
+      darkgreen_grass_13: 1654546817
+      darkgreen_grass_14: -467372100
+      darkgreen_grass_15: 1895261600
+      darkgreen_grass_16: 1067744397
+      darkgreen_grass_17: 480221887
+      darkgreen_grass_18: 1959715187
+      darkgreen_grass_19: -1960883029
+      darkgreen_grass_2: -1270890050
+      darkgreen_grass_20: 1176392599
+      darkgreen_grass_21: -747408554
+      darkgreen_grass_22: 2071249751
+      darkgreen_grass_23: -1524527432
+      darkgreen_grass_24: 1010380851
+      darkgreen_grass_25: -105620294
+      darkgreen_grass_26: 593952946
+      darkgreen_grass_27: 1754985607
+      darkgreen_grass_28: 1350029280
+      darkgreen_grass_29: 1123323457
+      darkgreen_grass_3: 1078235229
+      darkgreen_grass_30: 357544870
+      darkgreen_grass_31: -625931360
+      darkgreen_grass_32: -1430820588
+      darkgreen_grass_33: -17215304
+      darkgreen_grass_34: 110008344
+      darkgreen_grass_35: -945803125
+      darkgreen_grass_36: 1557772022
+      darkgreen_grass_37: 1189519028
+      darkgreen_grass_38: 530510420
+      darkgreen_grass_39: -551473152
+      darkgreen_grass_4: 711669946
+      darkgreen_grass_40: 1331001922
+      darkgreen_grass_41: 1653913831
+      darkgreen_grass_42: 1542854688
+      darkgreen_grass_43: -229540720
+      darkgreen_grass_44: -2106107012
+      darkgreen_grass_45: -247723152
+      darkgreen_grass_46: -999968544
+      darkgreen_grass_47: 798078865
+      darkgreen_grass_48: 274072722
+      darkgreen_grass_49: -1545171062
+      darkgreen_grass_5: -1711827833
+      darkgreen_grass_50: -908159641
+      darkgreen_grass_51: 1922991881
+      darkgreen_grass_52: 1406189378
+      darkgreen_grass_53: -743749583
+      darkgreen_grass_54: -1644338562
+      darkgreen_grass_55: 1005012615
+      darkgreen_grass_56: -2120904675
+      darkgreen_grass_57: -1061257142
+      darkgreen_grass_58: -560803113
+      darkgreen_grass_59: -735980678
+      darkgreen_grass_6: -856294014
+      darkgreen_grass_60: 250915589
+      darkgreen_grass_61: -140885851
+      darkgreen_grass_62: 1291544701
+      darkgreen_grass_63: 774210626
+      darkgreen_grass_64: -873047606
+      darkgreen_grass_65: -673701888
+      darkgreen_grass_66: 518197924
+      darkgreen_grass_67: -1246590276
+      darkgreen_grass_68: -1307257793
+      darkgreen_grass_69: -1010936605
+      darkgreen_grass_7: -437433196
+      darkgreen_grass_70: 407292319
+      darkgreen_grass_71: 793578525
+      darkgreen_grass_72: -8548918
+      darkgreen_grass_73: 2062616144
+      darkgreen_grass_74: -338513551
+      darkgreen_grass_75: -1281816051
+      darkgreen_grass_76: 1123532995
+      darkgreen_grass_77: 1561208219
+      darkgreen_grass_78: 1104329868
+      darkgreen_grass_79: -2105192266
+      darkgreen_grass_8: -822357215
+      darkgreen_grass_80: 364412619
+      darkgreen_grass_81: -2042026744
+      darkgreen_grass_82: 406144197
+      darkgreen_grass_83: -1909387630
+      darkgreen_grass_84: 1118535927
+      darkgreen_grass_85: -1982373410
+      darkgreen_grass_86: -689127143
+      darkgreen_grass_87: 332921095
+      darkgreen_grass_88: 1358896825
+      darkgreen_grass_89: -2088347959
+      darkgreen_grass_9: 58651573
+      darkgreen_grass_90: -928480666
+      darkgreen_grass_91: 1406621215
+      darkgreen_grass_92: -1375300077
+      darkgreen_grass_93: -634500626
+      darkgreen_grass_94: -868305368
+      darkgreen_grass_95: -1291111370
+      darkgreen_grass_96: -355594322
+      darkgreen_grass_97: -1197352451
+      darkgreen_grass_98: 1698120000
+      darkgreen_grass_99: -138758276
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

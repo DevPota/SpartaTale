@@ -26,9 +26,9 @@ public class MenuUIManager : MonoBehaviour
         MenuUIButton creditButton = GameObject.Find("credit").GetComponent<MenuUIButton>();
         MenuUIButton titleButton  = GameObject.Find("title").GetComponent<MenuUIButton>();
 
-        startButton.Init(() => { MenuUIManager.I.LoadScene(1); });
+        startButton.Init(() => { MenuUIManager.I.LoadScene(2); });
         outButton.Init(Application.Quit);
-        creditButton.Init(() => { MenuUIManager.I.LoadScene(3); });
+        creditButton.Init(() => { /*MenuUIManager.I.LoadScene(3);*/ });
         titleButton.Init(() => { });
     }
 

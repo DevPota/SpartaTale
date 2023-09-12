@@ -1,35 +1,34 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.XR;
 
 public class Character : MonoBehaviour
 {
-    private GameObject Mask;
-    public Sprite[] sprites;
-    float speed = 5f;
-    public int hp = 10;
+    public int   Hp           { get; set; } = 92;
+    public int   MaxHp        { get; set; } = 92;
+    public float Speed        { get; set; } = 5f;
+    public bool  MoveWithMask { get; set; } = false;
+    public bool  BlueHeart    { get; set; } = false;
+    public bool  Ending       { get; set; } = false;
+
+    GameObject Mask;
+
     bool hasBeenAttack = false;
-    public bool moveWithMask = false;
-    public bool blueHeart = false;
     bool hasBeenChangeState = false;
     bool jumpAble = true;
 
     Vector3 maskPosition;
+
     float maskHalfWidth;
     float maskHalfHeight;
-
     float playerHalfWidth;
     float playerHalfHeight;
 
-    Rigidbody2D _rigid;
-    Collider2D _coll;
+    Rigidbody2D rigid;
+    Collider2D  coll;
 
     /* UI */
-    private int currentPositionIndex = 0;
-    public GameObject yellowBtn;
+    int currentPositionIndex = 0;
 
     public Vector3[] ButtonPositions { get; private set; } = new Vector3[]
     {
@@ -39,45 +38,60 @@ public class Character : MonoBehaviour
         new Vector3(3.78f, -4.5f, 0f)    // 추가 위치
     };
 
-    void Start()
+    Action<int, int>   hpListener       = null;
+    Action<float>      hpSliderListener = null;
+
+    public void Init(Action<int, int> hpAction, Action<float> hpSliderAction)
     {
         GetLength();
         GetMask();
-        _rigid = GetComponent<Rigidbody2D>();
-        _rigid.gravityScale = 0.0f;
-        _coll = GetComponent<Collider2D>();
-        _coll.isTrigger = true;
+        rigid = GetComponent<Rigidbody2D>();
+        rigid.gravityScale = 0.0f;
+        coll = GetComponent<Collider2D>();
+        coll.isTrigger = true;
+
+        hpListener       = hpAction;
+        hpSliderListener = hpSliderAction;
+
+        hpListener(Hp, MaxHp);
+        hpSliderListener((float)Hp / MaxHp);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z) == true)
-        {
-            /* 버튼 사용 */
-        }
+        return;
 
-        
-        if(GameManager.I.IsPlayerTurn == true)
+        if (Hp > 0) 
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) == true || Input.GetKeyDown(KeyCode.A) == true)
+            if (Ending) Speed = 1.0f;
+            if (Input.GetKeyDown(KeyCode.Z) == true)
             {
-                currentPositionIndex = (currentPositionIndex - 1 + ButtonPositions.Length) % ButtonPositions.Length;
-                transform.position = ButtonPositions[currentPositionIndex];
+                /* 버튼 사용 */
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) == true)
+
+
+            if (GameManager.I.IsPlayerTurn == true)
             {
-                currentPositionIndex = (currentPositionIndex + 1) % ButtonPositions.Length;
-                transform.position = ButtonPositions[currentPositionIndex];
+                if (Input.GetKeyDown(KeyCode.LeftArrow) == true || Input.GetKeyDown(KeyCode.A) == true)
+                {
+                    currentPositionIndex = (currentPositionIndex - 1 + ButtonPositions.Length) % ButtonPositions.Length;
+                    transform.position = ButtonPositions[currentPositionIndex];
+                }
+                else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) == true)
+                {
+                    currentPositionIndex = (currentPositionIndex + 1) % ButtonPositions.Length;
+                    transform.position = ButtonPositions[currentPositionIndex];
+                }
             }
-        }
-        else
-        {
-            if (!moveWithMask)
+            else
             {
-                if (!blueHeart) MoveIdle();
-                else MoveJump();
+                if (!MoveWithMask)
+                {
+                    if (!BlueHeart) MoveIdle();
+                    else MoveJump();
+                }
+                else MoveMask();
             }
-            else MoveMask();
         }
     }
 
@@ -106,14 +120,14 @@ public class Character : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        transform.position += new Vector3(x, y) * speed * Time.deltaTime;
+        transform.position += new Vector3(x, y) * Speed * Time.deltaTime;
         if (transform.position.x > maskPosition.x + maskHalfWidth - playerHalfWidth || transform.position.x < maskPosition.x - maskHalfWidth + playerHalfWidth)
         {
-            transform.position -= new Vector3(x, y) * speed * Time.deltaTime;
+            transform.position -= new Vector3(x, y) * Speed * Time.deltaTime;
         }
         if (transform.position.y > maskPosition.y + maskHalfHeight - playerHalfHeight || transform.position.y < maskPosition.y - maskHalfHeight + playerHalfHeight)
         {
-            transform.position -= new Vector3(x, y) * speed * Time.deltaTime;
+            transform.position -= new Vector3(x, y) * Speed * Time.deltaTime;
         }
     }
     void MoveMask()
@@ -121,23 +135,23 @@ public class Character : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        transform.position += new Vector3(x, y) * speed * Time.deltaTime;
+        transform.position += new Vector3(x, y) * Speed * Time.deltaTime;
 
         //화면 밖으로 못 나가도록
         Vector3 bottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)); 
         Vector3 topRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         if (transform.position.x > topRight.x - playerHalfWidth || transform.position.x < bottomLeft.x + playerHalfWidth)
         {
-            transform.position -= new Vector3(x, y) * speed * Time.deltaTime;
+            transform.position -= new Vector3(x, y) * Speed * Time.deltaTime;
         }
         if (transform.position.y > topRight.y - playerHalfHeight || transform.position.y < bottomLeft.y + playerHalfHeight)
         {
-            transform.position -= new Vector3(x, y) * speed * Time.deltaTime;
+            transform.position -= new Vector3(x, y) * Speed * Time.deltaTime;
         }
         //마스크도 같이 움직이도록
         if (transform.position.x > maskPosition.x + maskHalfWidth - playerHalfWidth || transform.position.x < maskPosition.x - maskHalfWidth + playerHalfWidth || transform.position.y > maskPosition.y + maskHalfHeight - playerHalfHeight || transform.position.y < maskPosition.y - maskHalfHeight + playerHalfHeight)
         {
-            Mask.transform.position += new Vector3(x, y) * speed * Time.deltaTime;
+            Mask.transform.position += new Vector3(x, y) * Speed * Time.deltaTime;
 
             GameManager.I.GetComponent<GameManager>().GetMask();
             GetMask();
@@ -149,15 +163,15 @@ public class Character : MonoBehaviour
         if (!hasBeenChangeState) MoveJumpEnter();
         float x = Input.GetAxisRaw("Horizontal");
 
-        transform.position += new Vector3(x, 0) * speed * Time.deltaTime;
+        transform.position += new Vector3(x, 0) * Speed * Time.deltaTime;
 
         if (transform.position.x > maskPosition.x + maskHalfWidth - playerHalfWidth || transform.position.x < maskPosition.x - maskHalfWidth + playerHalfWidth)
         {
-            transform.position -= new Vector3(x, 0) * speed * Time.deltaTime;
+            transform.position -= new Vector3(x, 0) * Speed * Time.deltaTime;
         }
         if (transform.position.y > maskPosition.y + maskHalfHeight - playerHalfHeight || transform.position.y < maskPosition.y - maskHalfHeight + playerHalfHeight)
         {
-            transform.position -= new Vector3(x, 0) * speed * Time.deltaTime;
+            transform.position -= new Vector3(x, 0) * Speed * Time.deltaTime;
         }
 
         //if (Input.GetKeyDown(KeyCode.Space))
@@ -167,7 +181,7 @@ public class Character : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)&&jumpAble)
         {
             jumpAble = false;
-            _rigid.AddForce(Vector2.up * 5.5f, ForceMode2D.Impulse);
+            rigid.AddForce(Vector2.up * 5.5f, ForceMode2D.Impulse);
             StartCoroutine(JumpDelay());
         }
     }
@@ -180,23 +194,24 @@ public class Character : MonoBehaviour
     //}
     private IEnumerator JumpDelay()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.7f);
         jumpAble = true;
     }
 
     void MoveJumpEnter()
     {
-        GetComponent<SpriteRenderer>().sprite = sprites[1];
+        GetComponent<SpriteRenderer>().color = new Color(0,0,1);
         hasBeenChangeState = true;
-        _rigid.gravityScale = 1.05f;
-        _coll.isTrigger = false;
+        rigid.gravityScale = 1.05f;
+        coll.isTrigger = false;
     }
     void MoveJumpEscape()
     {
-        GetComponent<SpriteRenderer>().sprite = sprites[0];
+        GetComponent<SpriteRenderer>().color = new Color(1,1,1);
         hasBeenChangeState = false;
-        _rigid.gravityScale = 0.0f;
-        _coll.isTrigger = true;
+        rigid.gravityScale = 0.0f;
+        rigid.velocity = Vector3.zero;
+        coll.isTrigger = true;
     }
 
     void  InitializeAttack()
@@ -204,15 +219,16 @@ public class Character : MonoBehaviour
         hasBeenAttack = false;
     }
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerStay2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "enemy" && !hasBeenAttack) //한 프레임에 여러 대 맞는 걸 방지하기 위해 bool타입 변수 사용
+        if (coll.gameObject.tag == "enemy" && hasBeenAttack == false)
         {
-            hp--;
-            Debug.Log("맞음");
-            Debug.Log(hp);
+            Hp--;
             hasBeenAttack = true;
-            Invoke("InitializeAttack", 0.2f); //0.2초 간격으로만 맞을 수 있도록
+            Invoke("InitializeAttack", 0.05f);
+
+            hpListener(Hp, MaxHp);
+            hpSliderListener((float)Hp / MaxHp);
         }
     }
 }

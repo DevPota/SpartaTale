@@ -13,6 +13,7 @@ public class LogoManager : MonoBehaviour
     private void Start()
     {
         PD = GetComponent<PlayableDirector>();
+        PD.Play();
     }
 
     private void Update()
