@@ -20,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Single/GameOver.unity
     guid: 2300e38ac5eda4a41b6d21aebd0bf593
+  - enabled: 1
+    path: Assets/Scenes/Single/GameEndScene.unity
+    guid: 8b40f050f0a344f3ab60a834640cf4a3
+  - enabled: 1
+    path: Assets/Scenes/Single/CreditScene.unity
+    guid: d3ea9a42bdf05f7488546e1efcd2baa2
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 16a9761ca17761d4cb3ce96e481185f0, type: 2}

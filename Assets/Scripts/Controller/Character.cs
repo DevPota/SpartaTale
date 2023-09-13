@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public int   Hp           { get; set; } = 992;
-    public int   MaxHp        { get; set; } = 992;
+    public int   Hp           { get; set; } = 92;
+    public int   MaxHp        { get; set; } = 92;
     public float Speed        { get; set; } = 5f;
     public bool  MoveWithMask { get; set; } = false;
     public bool  BlueHeart    { get; set; } = false;
@@ -64,21 +64,18 @@ public class Character : MonoBehaviour
         if (Hp > 0) 
         {
             if (Ending) Speed = 1.0f;
-            if (Input.GetKeyDown(KeyCode.Z) == true)
-            {
-                /* 버튼 사용 */
-            }
-
 
             if (GameManager.I.IsPlayerTurn == true)
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow) == true || Input.GetKeyDown(KeyCode.A) == true)
                 {
+                    GameManager.I.PlaySFX("UISelect");
                     currentPositionIndex = (currentPositionIndex - 1 + ButtonPositions.Length) % ButtonPositions.Length;
                     transform.position = ButtonPositions[currentPositionIndex];
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) == true)
                 {
+                    GameManager.I.PlaySFX("UISelect");
                     currentPositionIndex = (currentPositionIndex + 1) % ButtonPositions.Length;
                     transform.position = ButtonPositions[currentPositionIndex];
                 }

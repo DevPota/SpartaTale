@@ -42,31 +42,45 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scriptText;
     [SerializeField] private Animator        peekingAnimator;
     [SerializeField] private Animator        sansAnimator;
+    [SerializeField] public Animator        attackAnimator;
+    [SerializeField] public GameObject      missText;
 
     Queue<AudioSource> sfxQue = new Queue<AudioSource>();
 
     bool end = false;
 
-    public bool IsPlayerTurn { get; private set; } = true;
+    public bool IsPlayerTurn { get; private set; } = false;
 
     public enum Pattern
     {
-        First = 1, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth, Tenth, Eleventh, Twelfth, Thirteenth, Fourteenth, Fifteenth
+        First = 1, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth, Tenth, Eleventh, Twelfth, Thirteenth, Fourteenth, Fifteenth, ResetMask
     }
 
     Queue<int> patternQueue = null;
 
     Pattern pattern;
 
+    int cnt = 0;
+    int turn = 0;
+
+    string[] dialogs = {
+        "당신은 끔찍한 시간을 보내게 될 것 같은 기분이 든다.", 
+        "당신은 죄악이 등을 타고 오르는 것을 느꼈다.", 
+        "박종민 매니저가 당신에게 숙제를 베풀고 있다.",
+        "진짜 전투가 드디어 시작 된다.",
+        "영원히 피할수는 없다.\n계속 공격하자."};
+
+
+
     void Awake()
     {
         I = this;
-        List<int> patternList = new List<int>(){ 1, 1, 2, 3, 4, 5, 1, 6, 7, 3, 8, 9, 10, 11, 1, 12};
+        List<int> patternList = new List<int>() { 1, 1, 7, 13, 3, 2, 4, 5, 1, 15, 6, 7, 8, 9, 15, 10, 11, 7, 14, 7, 3 };
         patternQueue = new Queue<int>(patternList);
         Player = GameObject.Find("Player").GetComponent<Character>();
         GetMask();
         Player.transform.position = maskPosition;
-        SetSpawnPosition();
+        SetSpawnPosition(); 
 
         for(int i = 0;i < 10; i++)
         {
@@ -100,6 +114,36 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void OnAttack()
+    {
+        PlaySFX("Attack");
+        attackAnimator.SetTrigger("OnAttack");
+
+        missText.SetActive(true);
+
+        if(Player.MoveWithMask == true)
+        {
+            StopAllCoroutines();
+            missText.GetComponent<TMP_Text>().color = new Color(1, 0, 0);
+            missText.GetComponent<TMP_Text>().text = "99999999";
+            PlaySFX("Damage");
+            scriptText.text = ".......";
+            Invoke("ToEndScene", 3.0f);
+        }
+        else
+        {
+            missText.SetActive(true);
+            sansAnimator.SetTrigger("Evade");
+            Invoke("UpdateTurn", 2.0f);
+        }
+
+    }
+
+    public void ToEndScene()
+    {
+        SceneManager.LoadScene(5);
+    }
+
     private IEnumerator GameOver()
     {
         BGM.Stop();
@@ -123,15 +167,47 @@ public class GameManager : MonoBehaviour
     [ContextMenu("UpdateTurn")]
     public void UpdateTurn()
     {
-        if(IsPlayerTurn == true)
+        missText.SetActive(false);
+        BattleUIManager.I.isClicked = false;
+        BattleUIManager.I.Release();
+        if (IsPlayerTurn == true)
         {
             IsPlayerTurn = false;
             Player.transform.position = battlePivot;
-            Battle();
+            BattleUIManager.I.Dialog.SetActive(false);
+            BattleUIManager.I.Dialog.GetComponentInChildren<TMP_Text>().text = "";
+            Mask.SetActive(true);
+            ChangePattern(default);
         }
         else
         {
             IsPlayerTurn = true;
+            Mask.SetActive(false);
+            BattleUIManager.I.Dialog.SetActive(true);
+            string dialogText = "";
+
+            if(turn == 0)
+            {
+                dialogText = dialogs[0];
+            }
+            else if(turn < 3)
+            {
+                dialogText = dialogs[1];
+            }
+            else if(turn < 5)
+            {
+                dialogText = dialogs[2];
+            }
+            else if(turn < 6)
+            {
+                dialogText = dialogs[3];
+            }
+            else
+            {
+                dialogText = dialogs[4];
+            }
+
+            BattleUIManager.I.Dialog.GetComponentInChildren<TMP_Text>().text = dialogText;
             Player.transform.position = Player.ButtonPositions[0];
         }
     }
@@ -160,13 +236,42 @@ public class GameManager : MonoBehaviour
 
     void ChangePattern(Pattern newPattern)
     {
-        StopCoroutine(pattern.ToString());
+        scriptText.text = "";
+        cnt++;
+        Player.GetComponent<Animator>().SetTrigger("Reset");
+        Player.GetComponent<Character>().BlueHeart = false;
+        Player.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
         sansAnimator.SetTrigger("Reset");
-        sansAnimator.ResetTrigger("Reset");
-        sansAnimator.ResetTrigger("Action");
-        sansAnimator.ResetTrigger("Action2");
+
+        if(cnt == 4 && patternQueue.Count != 0)
+        {
+            cnt = 0;
+            turn++;
+            UpdateTurn();
+            return;
+        }
+
+        StopCoroutine(pattern.ToString());
+
+        if(patternQueue.Count == 0)
+        {
+            Player.GetComponent<Character>().MoveWithMask = true;
+            patternQueue.Enqueue(14);
+            patternQueue.Enqueue(7);
+            patternQueue.Enqueue(1);
+        }
         pattern =(Pattern)patternQueue.Dequeue();
         StartCoroutine(pattern.ToString());
+    }
+    private IEnumerator ResetMask()
+    {
+        yield return null;
+
+        maskHalfWidth = 3f;
+        maskHalfHeight = 1.75f;
+        Mask.transform.localScale = new Vector2(maskHalfWidth * 2, maskHalfHeight * 2);
+        ChangePattern(default);
+        yield break;
     }
 
     private IEnumerator First()
@@ -372,15 +477,18 @@ public class GameManager : MonoBehaviour
         PlayVoice("Sans_5");
         Vector3 bottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)); //스크린좌표값은 왼쪽아래 0,0으로부터 시작
         Vector3 topRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        Vector2[] positions = { new Vector2(-5.08f, 1.65f), new Vector2(-3.71f, -2.76f), new Vector2(1.29f, 2.11f), new Vector2(6.35f, 1.65f), new Vector2(1f, -3.25f), new Vector2(6.27f, -3.03f),  new Vector2(1.62f, -2.11f),  new Vector2(0.05f, 0.31f) , new Vector2(-3.2f, -1.28f), new Vector2(-4.79f, -0.02f) };
 
         yield return new WaitForSeconds(1.0f);
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 1; i < 21; i++)
         {
-            Instantiate(EighthPrefab, positions[i], Quaternion.identity);
-            PlayVoice("Sans_5");
-            yield return new WaitForSeconds(1.0f);
+            Instantiate(EighthPrefab, new Vector2(Random.Range(-5, 5), Random.Range(-3, 3)), Quaternion.identity);
+
+            if(i % 2 == 0)
+            {
+                PlayVoice("Sans_5");
+            }
+            yield return new WaitForSeconds(0.5f);
         }
 
         yield return new WaitForSeconds(1.0f);
@@ -399,7 +507,7 @@ public class GameManager : MonoBehaviour
         Player.gameObject.SetActive(false);
         Mask.transform.DOShakePosition(1.0f, 0.5f, 10);
         Mask.transform.DOMove(prevMaskPosition, 1.0f);
-        Mask.transform.DOScale(new Vector3(maskHalfWidth * 3.0f * 4.0f, maskHalfHeight * 2.0f * 4.0f, 1.0f), 1.0f);
+        Mask.transform.DOScale(new Vector3(6f, 3.5f), 1.0f);
         yield return new WaitForSeconds(1.0f);
         sansAnimator.SetTrigger("Reset");
 
@@ -439,6 +547,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator Twelfth() //파란하트로 변신!
     {
         Player.transform.position = spawnPosition[4] + new Vector3(0, Player.transform.localScale.y * 0.5f, 0);
+        Player.GetComponent<Animator>().SetTrigger("Blue");
         Player.GetComponent<Character>().BlueHeart = true;
 
         Instantiate(TwelfthShortPrefab, maskPosition + new Vector3(2.0f, -2.0f, 0), Quaternion.identity);
@@ -447,8 +556,6 @@ public class GameManager : MonoBehaviour
         //프리팹 안에 들어있던 boneShort의 position이 -10이었다면, 마스크 중앙에 복제했을 때 중앙에서 -10의 위치에 boneShort가 나타난다.
 
         yield return new WaitForSeconds(5.0f);
-
-        //Square.SetActive(true);
 
         ChangePattern(Pattern.Thirteenth);
     }
@@ -474,7 +581,6 @@ public class GameManager : MonoBehaviour
         yield return null;
         //Square.SetActive(false);
         Mask.transform.localScale = new Vector3(9, 3.85f, 0);
-        maskInitialize();
         Player.GetComponent<Character>().BlueHeart = false;
 
         int[] index = { 0, 5, 2, 3 };
@@ -482,13 +588,18 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < index.Length; i++)
         {
+            sansAnimator.SetTrigger("Action2");
+            PlaySFX("Bell");
             yield return new WaitForSeconds(0.6f);
+            sansAnimator.SetTrigger("Reset");
             Vector2 vector = spawnPosition[index[i + 1]] - spawnPosition[index[i]];
             rotate = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
             Instantiate(SixthPrefab, spawnPosition[index[i]], Quaternion.Euler(0, 0, rotate));
 
             i++;
 
+            sansAnimator.SetTrigger("Action2");
+            PlaySFX("Bell");
             vector = spawnPosition[index[i - 1]] - spawnPosition[index[i]];
             rotate = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
             Instantiate(SixthPrefab, spawnPosition[index[i]], Quaternion.Euler(0, 0, rotate));
@@ -505,8 +616,8 @@ public class GameManager : MonoBehaviour
         yield return null;
         Mask.transform.localScale = new Vector3(6, 3.5f, 0);
         maskInitialize();
-        Player.GetComponent<Character>().MoveWithMask = true;
-        Player.GetComponent<Character>().Ending = true;
+
+        ChangePattern(default);
     }
 
 

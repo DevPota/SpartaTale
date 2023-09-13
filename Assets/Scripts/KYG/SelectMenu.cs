@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SelectMenu : MonoBehaviour
 {
@@ -11,8 +8,13 @@ public class SelectMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if(BattleUIManager.I.isClicked == true && GameManager.I.Player.MoveWithMask == false)
         {
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.I.PlaySFX("UISelect");
             if (yellowBtn.activeSelf)
             {
                 menuCanvas.SetActive(true);
@@ -30,7 +32,6 @@ public class SelectMenu : MonoBehaviour
         if(collision.transform.tag == "Player")
         {
             yellowBtn.gameObject.SetActive(true);
-            Debug.Log("충돌");
         }
         
     }
@@ -40,8 +41,8 @@ public class SelectMenu : MonoBehaviour
         if(collision.transform.tag == "Player")
         {
             yellowBtn.gameObject.SetActive(false);
-            Debug.Log("충돌X");
         }
     }
+    
 }
 

@@ -19,6 +19,8 @@ public class MenuUIManager : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] Animator fade;
+
     private void Start()
     {
         MenuUIButton startButton  = GameObject.Find("start").GetComponent<MenuUIButton>();
@@ -26,14 +28,48 @@ public class MenuUIManager : MonoBehaviour
         MenuUIButton creditButton = GameObject.Find("credit").GetComponent<MenuUIButton>();
         MenuUIButton titleButton  = GameObject.Find("title").GetComponent<MenuUIButton>();
 
-        startButton.Init(() => { MenuUIManager.I.LoadScene(2); });
-        outButton.Init(Application.Quit);
-        creditButton.Init(() => { /*MenuUIManager.I.LoadScene(3);*/ });
+        startButton.Init(() => { MenuUIManager.I.TransitionGame(); });
+        outButton.Init(MenuUIManager.I.TransitionOut);
+        creditButton.Init(() => { MenuUIManager.I.TransitionCredit(); });
         titleButton.Init(() => { });
     }
 
-    public void LoadScene(int sceneIndex)
+    public void LoadGame()
     {
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(2);
+    }
+
+    public void TransitionGame()
+    {
+        fade.gameObject.SetActive(true);
+        fade.SetTrigger("FadeIn");
+
+        Invoke("LoadGame", 2.0f);
+    }
+
+    public void LoadCredit()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void TransitionCredit()
+    {
+        fade.gameObject.SetActive(true);
+        fade.SetTrigger("FadeIn");
+
+        Invoke("LoadCredit", 2.0f);
+    }
+
+    public void LoadOut()
+    {
+        Application.Quit();
+    }
+
+    public void TransitionOut()
+    {
+        fade.gameObject.SetActive(true);
+        fade.SetTrigger("FadeIn");
+
+        Invoke("LoadOut", 2.0f);
     }
 }
