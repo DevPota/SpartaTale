@@ -4,6 +4,9 @@ using TMPro;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    public int talkDataId = 0;
+
     public GameObject playerCamera;
     public GameObject panel;
 
@@ -22,13 +25,13 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if(cameraTransform.position.x >= 29 && isStartTalking == false)
+        if(cameraTransform.position.x >= 29.85 && isStartTalking == false)
         {
             playerCamera.GetComponent<PlayerCamera>().cameraMoveSpeed = 0f;
             isStartTalking = true;
             panel.SetActive(true);
 
-            Talk(0);
+            Talk(talkDataId);
         }
     }
 
@@ -36,7 +39,7 @@ public class Enemy : MonoBehaviour
     {
         talkIdx++;
 
-        Talk(0);
+        Talk(talkDataId);
     }
 
     void Talk(int id)
