@@ -10718,11 +10718,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1983072776481058955, guid: e6b649442ccf7466685612a09d12f687, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19
+      value: -28
       objectReference: {fileID: 0}
     - target: {fileID: 1983072776481058955, guid: e6b649442ccf7466685612a09d12f687, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1983072776481058955, guid: e6b649442ccf7466685612a09d12f687, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10760,7 +10760,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: pjm_manager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1983072776481058953, guid: e6b649442ccf7466685612a09d12f687, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e6b649442ccf7466685612a09d12f687, type: 3}
 --- !u!1 &1147082236 stripped
 GameObject:
@@ -10779,14 +10780,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a42d063245e4036a82f9ef16b9bdb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkDataId: 1
   player: {fileID: 2097939832}
   panel: {fileID: 407180263}
   talkManager: {fileID: 1296043660}
   talkIdx: 0
   talkText: {fileID: 812145514}
-  startPoint: {x: -19, y: 0, z: 0}
-  EndPoint: {x: 17, y: 0, z: 0}
+  startPoint: {x: -28, y: -0.6, z: 0}
+  EndPoint: {x: 10, y: -0.6, z: 0}
   panelTriggerZone: {fileID: 760077616}
 --- !u!1 &1296043659
 GameObject:

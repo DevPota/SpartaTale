@@ -17,20 +17,22 @@ public class EndSceneEnemy : MonoBehaviour
 
     public Vector3 startPoint;
 
+    Transform playerTransform;
+    TileMap_PlayerMovement tmp;
+    int talkDataId = 1;
+
     [SerializeField]
     public Vector3 EndPoint;
 
-    [SerializeField]
-    public GameObject panelTriggerZone;
-
-    Transform playerTransform;
-    TileMap_PlayerMovement tmp;
+    
+    Animator anim;
 
     void Start()
     {
         playerTransform = player.transform;
         startPoint = transform.position;
         tmp = transform.GetComponent<TileMap_PlayerMovement>();
+        anim = transform.GetComponent<Animator>(); 
     }
 
     void Update()
@@ -39,16 +41,31 @@ public class EndSceneEnemy : MonoBehaviour
         {
             isStartTalking = true;
             panel.SetActive(true);
-
-            Talk(1);
+            Talk(talkDataId);
+            Debug.Log(talkIdx + "firstupdate");
         }
 
-        if(isStartTalking && talkIdx == 1)
+        else if(talkIdx == 1)
         {
-            panelTriggerZone.SetActive(false);
+            panel.SetActive(false);
             tmp.IsActive = true;
-            tmp.speed = 8.0f;
+            tmp.speed = 60.0f;
             transform.position = Vector3.MoveTowards(transform.position, EndPoint, tmp.speed * Time.deltaTime);
+            Debug.Log("talkIdx in isStartTalking" + talkIdx + " " + talkText.text);
+        }
+        
+        if(talkIdx == 1 && transform.position == EndPoint)
+        {
+            panel.SetActive(true);
+            tmp.IsActive = false;
+            Debug.Log("talkIdx in Endpoint" + talkIdx + " " + talkText.text);
+            Talk(talkDataId);
+        }
+
+        else if(talkIdx >= 2)
+        {
+            Talk(talkDataId);
+            Debug.Log("talkIdx Idx>=2 else" + talkIdx + " " + talkText.text);
         }
     }
 
@@ -56,12 +73,13 @@ public class EndSceneEnemy : MonoBehaviour
     {
         talkIdx++;
 
-        Talk(1);
+        Talk(talkDataId);
+        Debug.Log("talkIdx in Endpoint" + talkIdx + " " + talkText.text);
     }
 
     void Talk(int id)
     {
-        string talkData = talkManager.GetTalk(1, talkIdx);
+        string talkData = talkManager.GetTalk(talkDataId, talkIdx);
 
         if (talkData == null)
         {
