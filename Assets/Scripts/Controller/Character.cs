@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public int   Hp           { get; set; } = 1;
-    public int   MaxHp        { get; set; } = 92;
+    public int   Hp           { get; set; } = 992;
+    public int   MaxHp        { get; set; } = 992;
     public float Speed        { get; set; } = 5f;
     public bool  MoveWithMask { get; set; } = false;
     public bool  BlueHeart    { get; set; } = false;

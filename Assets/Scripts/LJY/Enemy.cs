@@ -29,10 +29,6 @@ public class Enemy : MonoBehaviour
             panel.SetActive(true);
 
             Talk(0);
-
-            //말풍선 옆 얼굴 띄우기 (상황에 맞는 얼굴 태그 설정 - string 설정에서 추가 예)
-            //말풍선 내용 띄우기 (spacebar 클릭할 때마다 다음 대사로 넘어감)
-            //
         }
     }
 
@@ -49,7 +45,6 @@ public class Enemy : MonoBehaviour
 
         if(talkData == null)
         {
-            //LoadScene으로 전투장면으로 넘어가면 됨 .
             panel.SetActive(false);
             SceneManager.LoadScene(3);
             return;

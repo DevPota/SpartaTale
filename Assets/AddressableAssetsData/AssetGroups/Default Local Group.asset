@@ -33,6 +33,58 @@ MonoBehaviour:
     m_Address: SFX_PlayerHit
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 4a963a316b7733845aa54268a1b6bf48
+    m_Address: Sans_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b867214e448530649aae2562bcb0523a
+    m_Address: Sans_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a542d32513b414244a2f75bcd0eaf8b6
+    m_Address: Sans_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7555331e33f12354aab6e813eaef73b0
+    m_Address: Sans_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f4e04a4a9f6bc10478c39de10178f5f6
+    m_Address: Sans_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 14f2e64c9a0eea04c9c2f8626786c4d4
+    m_Address: Sans_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4fe608b47225f104aad367d5fb1290bf
+    m_Address: Sans_6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 99a2049db8e727841b8e0a7debd5579d
+    m_Address: Bell
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 84340e05d0cd7ad498d95d5059a43af1
+    m_Address: s0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2cdccf504fc9980468d52a79dafe6fd4
+    m_Address: s1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1b0f936838dc886429a5e82fa9aeee74
+    m_Address: s2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 15caf2bcd15bb994dae3762a64315f44
+    m_Address: s3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 90e28e237c37c434c901a06360bb244a
+    m_Address: s4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0d92b9b381902514ab5367f9f539f56f, type: 2}
   m_SchemaSet:

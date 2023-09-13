@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using Cysharp.Threading.Tasks;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,16 +34,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject TwelfthLongPrefab;
     [SerializeField] private GameObject ThirteenthPrefab;
     [SerializeField] private AudioSource BGM;
+    [SerializeField] private AudioSource voice;
 
     [SerializeField] private Vector3   battlePivot;
     [SerializeField] private Vector3[] spawnPosition;
 
-    [SerializeField] private GameObject scriptText;
+    [SerializeField] private TextMeshProUGUI scriptText;
+    [SerializeField] private Animator        peekingAnimator;
+    [SerializeField] private Animator        sansAnimator;
 
     Queue<AudioSource> sfxQue = new Queue<AudioSource>();
-
-
-    private Text script;
 
     bool end = false;
 
@@ -53,13 +54,16 @@ public class GameManager : MonoBehaviour
         First = 1, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth, Tenth, Eleventh, Twelfth, Thirteenth, Fourteenth, Fifteenth
     }
 
-    Pattern pattern = Pattern.First;
+    Queue<int> patternQueue = null;
+
+    Pattern pattern;
 
     void Awake()
     {
         I = this;
+        List<int> patternList = new List<int>(){ 1, 1, 2, 3, 4, 5, 1, 6, 7, 3, 8, 9, 10, 11, 1, 12};
+        patternQueue = new Queue<int>(patternList);
         Player = GameObject.Find("Player").GetComponent<Character>();
-        script = scriptText.GetComponent<Text>();
         GetMask();
         Player.transform.position = maskPosition;
         SetSpawnPosition();
@@ -129,7 +133,6 @@ public class GameManager : MonoBehaviour
         {
             IsPlayerTurn = true;
             Player.transform.position = Player.ButtonPositions[0];
-            pattern += 1;
         }
     }
 
@@ -151,13 +154,18 @@ public class GameManager : MonoBehaviour
     }
     void Battle()
     {
+        pattern = (Pattern)patternQueue.Dequeue();
         StartCoroutine(pattern.ToString());
     }
 
     void ChangePattern(Pattern newPattern)
     {
         StopCoroutine(pattern.ToString());
-        pattern = newPattern;
+        sansAnimator.SetTrigger("Reset");
+        sansAnimator.ResetTrigger("Reset");
+        sansAnimator.ResetTrigger("Action");
+        sansAnimator.ResetTrigger("Action2");
+        pattern =(Pattern)patternQueue.Dequeue();
         StartCoroutine(pattern.ToString());
     }
 
@@ -171,8 +179,12 @@ public class GameManager : MonoBehaviour
         int[] index = { 0, 3, 1, 4, 2, 5 };
         int i = 0;
 
+        PlayVoice("s0");
+
         while (true)
         {
+            sansAnimator.SetTrigger("Action");
+            PlaySFX("Bell");
             Instantiate(StraightPrefab, spawnPosition[index[i++]] - new Vector3(offsetX, offsetY, 0), Quaternion.identity);
             if (i % 2 == 0) offsetX -= boneCount * 0.3f * 0.5f;
             offsetY *= -1;
@@ -181,6 +193,7 @@ public class GameManager : MonoBehaviour
             if (i == 6) break;
 
             yield return new WaitForSeconds(1.0f);
+            sansAnimator.SetTrigger("Reset");
         }
         yield return new WaitForSeconds(1.0f);
 
@@ -189,8 +202,11 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Second()
     {
+        sansAnimator.SetTrigger("Action2");
+        PlayVoice("s1");
+        PlaySFX("Bell");
 
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             switch (Random.Range(0, 2))
             {
@@ -209,6 +225,9 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Third()
     {
+        sansAnimator.SetTrigger("Action2");
+        PlayVoice("s2");
+        PlaySFX("Bell");
         yield return new WaitForSeconds(1.0f);
         Instantiate(ThirdPrefab, spawnPosition[5] + new Vector3(0, maskHalfHeight, 0), Quaternion.identity);
 
@@ -225,16 +244,22 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f); 
         
         maskInitialize();//바로 초기화하면 다 커지기도 전에 Mask받아옴 . 꼭 1초 후에 받아와야 한다
-        script.text = null;
-        script.DOText("▶ 라이프 사이클이 시작됩니다", 2.0f);
 
-        yield return new WaitForSeconds(2.0f);
+        scriptText.text = "라이프 사이클이\n시작됩니다";
+        peekingAnimator.SetTrigger("0");
+        PlayVoice("Sans_1");
+
+        yield return new WaitForSeconds(3.0f);
 
         ChangePattern(Pattern.Fifth);
     }
     private IEnumerator Fifth() //처음은 게임오브젝트부터
     {
-        script.text = null;
+        scriptText.text = "처음은\n게임오브젝트부터";
+        PlayVoice("Sans_0");
+        sansAnimator.SetTrigger("Action");
+        PlaySFX("Bell");
+
         for (int i = 0; i < 10; i++)
         {
             Instantiate(FifthPrefab, spawnPosition[1] + new Vector3(Random.Range(-maskHalfWidth, maskHalfWidth), 0, 0), Quaternion.identity);
@@ -246,28 +271,63 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Sixth() //캠켜주세요  
     {
+        scriptText.text = "캠 켜주세요";
+        peekingAnimator.SetTrigger("1");
+        PlayVoice("Sans_2");
+
         int[] index = { 0, 2, 3, 5 };
+
+        int cnt = 1;
 
         foreach (int idx in index)
         {
+            PlaySFX("Bell");
+
+            if (cnt % 2 == 0)
+            {
+                sansAnimator.SetTrigger("Action2");
+            }
+            else
+            {
+                sansAnimator.SetTrigger("Action");
+            }
+
+            cnt++;
             Mask.transform.DOShakePosition(0.4f, 0.5f, 10);
             if (idx == 0) Instantiate(SixthPrefab, spawnPosition[idx], Quaternion.Euler(0, 0, Random.Range(-90.0f, 0.0f)));
             else if (idx == 2) Instantiate(SixthPrefab, spawnPosition[idx], Quaternion.Euler(0, 0, Random.Range(-180.0f, -90.0f)));
             else if (idx == 3) Instantiate(SixthPrefab, spawnPosition[idx], Quaternion.Euler(0, 0, Random.Range(0.0f, 90.0f)));
             else Instantiate(SixthPrefab, spawnPosition[idx], Quaternion.Euler(0, 0, Random.Range(90.0f, 180.0f)));
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.0f);
+            sansAnimator.SetTrigger("Reset");
         }
 
         ChangePattern(Pattern.Seventh);
     }
     private IEnumerator Seventh() //어디가세요 
     {
+        scriptText.text = "어디가세요";
+        peekingAnimator.SetTrigger("1");
+        PlayVoice("Sans_3");
+
         int[] index = { 0, 5, 2, 3, 1, 4 };
         float rotate = 0.0f;
 
+        int cnt = 1;
+
         for(int i = 0; i<index.Length; i++)
         {
+            PlaySFX("Bell");
+            if (cnt % 2 == 0)
+            {
+                sansAnimator.SetTrigger("Action");
+            }
+            else
+            {
+                sansAnimator.SetTrigger("Action2");
+            }
+            cnt++;
             Vector2 vector = spawnPosition[index[i + 1]] - spawnPosition[index[i]];
             rotate  = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
             Instantiate(SixthPrefab, spawnPosition[index[i]], Quaternion.Euler(0,0,rotate));
@@ -279,15 +339,19 @@ public class GameManager : MonoBehaviour
             Instantiate(SixthPrefab, spawnPosition[index[i]], Quaternion.Euler(0, 0, rotate));
 
             yield return new WaitForSeconds(0.6f);
+            sansAnimator.SetTrigger("Reset");
         }
         ChangePattern(Pattern.Eighth);
     }
     private IEnumerator Eighth() //그림좋아하세요? - 마스크 크기 변화
     {
+        sansAnimator.SetTrigger("Action");
         Player.Speed = 2.0f;
-        script.DOText("▶ 그림 좋아하세요?", 2.0f);
-        yield return new WaitForSeconds(2.0f);
-        script.text = null;
+        scriptText.text = "그림 좋아하세요?";
+        peekingAnimator.SetTrigger("2");
+        PlaySFX("Bell");
+        PlayVoice("Sans_4");
+        yield return new WaitForSeconds(3.0f);
 
         Mask.transform.DOShakePosition(1.0f, 0.5f, 10);
         Mask.transform.DOScale(new Vector3(maskHalfWidth / 3.0f, maskHalfHeight * 0.5f, 1.0f), 1.0f);
@@ -303,6 +367,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Ninth() //그림 공격
     {
+        PlaySFX("Bell");
+        sansAnimator.SetTrigger("Action2");
+        PlayVoice("Sans_5");
         Vector3 bottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)); //스크린좌표값은 왼쪽아래 0,0으로부터 시작
         Vector3 topRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         Vector2[] positions = { new Vector2(-5.08f, 1.65f), new Vector2(-3.71f, -2.76f), new Vector2(1.29f, 2.11f), new Vector2(6.35f, 1.65f), new Vector2(1f, -3.25f), new Vector2(6.27f, -3.03f),  new Vector2(1.62f, -2.11f),  new Vector2(0.05f, 0.31f) , new Vector2(-3.2f, -1.28f), new Vector2(-4.79f, -0.02f) };
@@ -312,16 +379,21 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             Instantiate(EighthPrefab, positions[i], Quaternion.identity);
-            yield return new WaitForSeconds(0.5f);
+            PlayVoice("Sans_5");
+            yield return new WaitForSeconds(1.0f);
         }
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
 
         ChangePattern(Pattern.Tenth);
     }
 
     private IEnumerator Tenth() //얼른 TIL 제출하세요 - 마스크 크기 변화
     {
+        sansAnimator.SetTrigger("Action");
+        PlayVoice("Sans_6");
+        peekingAnimator.SetTrigger("3");
+        scriptText.text = "얼른 TIL 제출하세요";
         Player.Speed = 5.0f;
 
         Player.gameObject.SetActive(false);
@@ -329,17 +401,17 @@ public class GameManager : MonoBehaviour
         Mask.transform.DOMove(prevMaskPosition, 1.0f);
         Mask.transform.DOScale(new Vector3(maskHalfWidth * 3.0f * 4.0f, maskHalfHeight * 2.0f * 4.0f, 1.0f), 1.0f);
         yield return new WaitForSeconds(1.0f);
+        sansAnimator.SetTrigger("Reset");
 
         maskInitialize();
 
-        script.DOText("▶ 얼른 TIL 제출하세요", 2.0f);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
 
         ChangePattern(Pattern.Eleventh);
     }
     private IEnumerator Eleventh() //TIL 공격
     {
-        script.text = null;
+        scriptText.text = "";
         List<List<Vector2>> list = new List<List<Vector2>>();
         GameObject obj = null;
 
@@ -462,5 +534,11 @@ public class GameManager : MonoBehaviour
         temp.Play();
 
         sfxQue.Enqueue(temp);
+    }
+
+    public async void PlayVoice(string tag)
+    {
+        voice.clip = await LoadAudio(tag);
+        voice.Play();
     }
 }
