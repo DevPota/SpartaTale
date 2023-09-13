@@ -49,7 +49,7 @@ public class MenuUIManager : MonoBehaviour
 
     public void LoadCredit()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(6);
     }
 
     public void TransitionCredit()
