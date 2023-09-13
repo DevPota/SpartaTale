@@ -106,6 +106,7 @@ public class BattleUIManager : MonoBehaviour
         {
             menuButtons[2].gameObject.SetActive(false);
             itemTxt.gameObject.SetActive(true);
+            GameManager.I.PlaySFX("Maxim");
             GameManager.I.Player.Hp = GameManager.I.Player.MaxHp;
             GameManager.I.UpdateTurn();
             isClicked = true;

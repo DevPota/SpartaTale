@@ -97,6 +97,10 @@ MonoBehaviour:
     m_Address: Attack
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 2e90e108fc90bbf41b1ca57d2a3508fb
+    m_Address: Maxim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0d92b9b381902514ab5367f9f539f56f, type: 2}
   m_SchemaSet:
