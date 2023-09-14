@@ -7,7 +7,7 @@
 * 팀장 : 이주연
 * 팀원 : 강희건, 김윤경, 김해찬, 유채연
 
-프로젝트 기간 : 2023-09-11 ~ 2023-09-11 (3일간 진행)
+프로젝트 기간 : 2023-09-08 ~ 2023-09-13
 <br/>
 <br/>
 
@@ -51,13 +51,17 @@
 ## 실행환경
 Windows
 
-### 사용기술
-C#, Unity
+<br/>
+<br/>
+
+## 사용기술
+* Unity 2021.3.24f1
+* c#
 
 <br/>
 <br/>
 
-## Contributors
+## Developers
 <div>
 <a href="https://github.com/juyonLee00">
   <img src="https://github.com/juyonLee00.png" width="50" height="50" >
