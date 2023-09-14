@@ -17,26 +17,35 @@
 - 스크립트
 - 게임오프닝
 - 게임엔딩
+  
 <br/>
+
 ### 강희건
 - 메인메뉴
   - 효과음, 버튼 기능
 - 옵션
 - 게임오버
+  
 <br/>
+
 ### 김윤경
 - 배틀UI
 - 버튼 충돌 처리
+  
 <br/>
+
 ### 김해찬
 - 기획
 - 애니메이션
 - 배틀로직
 - 사운드
+  
 <br/>
+
 ### 유채연
 - 배틀로직
 - 엔딩크레딧
+
 <br/>
 <br/>
 
@@ -52,7 +61,7 @@ C#, Unity
 ## Contributors
 <div>
 <a href="https://github.com/juyonLee00">
-  <img src="https://github.com/juyonLee00.png0" width="50" height="50" >
+  <img src="https://github.com/juyonLee00.png" width="50" height="50" >
 </a>
     <a href="https://github.com/DevPota">
   <img src="https://github.com/DevPota.png" width="50" height="50" >
