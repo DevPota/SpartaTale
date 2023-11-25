@@ -1,4 +1,4 @@
-# SpartaTale
+# SpartaTale (숙제)
 언더테일 샌즈전을 패러디한 게임입니다.
 주된 스토리는 박샌즈를 피해 퇴실하려는 내용입니다.
 [시연 영상](https://youtu.be/l5O3d3dk_LA)
